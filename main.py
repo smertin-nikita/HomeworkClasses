@@ -130,13 +130,15 @@ class Chicken(Animal):
         return eggs_cnt
 
 
-def feedAnimal(animal, count_feed):
-    animal.eat(count_feed)
+def feedAnimals(*animals, count_feed=0.3):
+    for animal in animals:
+        animal.eat(count_feed)
 
 
-def action(animal):
-    animal.sound()
-    animal.interaction()
+def actions(*animals):
+    for animal in animals:
+        animal.sound()
+        animal.interaction()
 
 
 animals = [
@@ -152,9 +154,10 @@ animals = [
     Duck('Кряква')
 ]
 
-
-
-
+# Покормить всех
+feedAnimals(*animals)
+# Взаимодейстие
+actions(*animals)
 
 # get weights of all animals
 animals_weight = (animal.weight for animal in animals)

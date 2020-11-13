@@ -159,15 +159,15 @@ feedAnimals(*animals.values())
 # Взаимодейстие
 actions(*animals.values())
 
-feedAnimals(animals['манька'], 1)
+feedAnimals(animals['манька'], count_feed=1)
 actions(animals['серый'], animals['белый'])
 
 
 # get weights of all animals
-animals_weight = (animal.weight for name, animal in animals)
+animals_weight = (animal.weight for animal in animals.values())
 # find sum of weights
 print(sum(animals_weight))
 
 # Sort to find the first the most weight animal
-animal_weightest = sorted(animals, key=lambda animal: animal.weight, reverse=True)
-print(animal_weightest[0].value())
+animal_weightest = sorted(animals.values(), key=lambda animal: animal.weight, reverse=True)
+print(f'{animal_weightest[0].name} весит больше всех')

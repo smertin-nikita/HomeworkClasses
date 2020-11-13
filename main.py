@@ -10,7 +10,7 @@ class Animal:
         self.name = name
         self.weight = weight
 
-    def feed(self, food_weight=0.1):
+    def eat(self, food_weight=0.1):
         self.weight += food_weight
 
     def sound(self):
@@ -27,7 +27,7 @@ class Cow(Animal):
     Represents Cow behavior
     """
 
-    def __init__(self, name, weight):
+    def __init__(self, name, weight=100):
         super().__init__(name, weight)
 
     def sound(self):
@@ -35,7 +35,9 @@ class Cow(Animal):
 
     def interaction(self):
         """Human interaction with cow. return volume of milk in litres"""
-        return random.randint(1, 10)
+        volume = random.randint(1, 10)
+        print(f'Корова принесла {volume} литров молока')
+        return volume
 
 
 class Goat(Animal):
@@ -43,7 +45,7 @@ class Goat(Animal):
     Represents Goat behavior
     """
 
-    def __init__(self, name, weight):
+    def __init__(self, name, weight=50):
         super().__init__(name, weight)
 
     def sound(self):
@@ -51,7 +53,9 @@ class Goat(Animal):
 
     def interaction(self):
         """Human interaction with Goat. return volume of milk in litres"""
-        return random.randint(1, 5)
+        volume = random.randint(1, 5)
+        print(f'Коза принесла {volume} литров молока')
+        return volume
 
 
 class Sheep(Animal):
@@ -59,7 +63,7 @@ class Sheep(Animal):
     Represents Sheep behavior
     """
 
-    def __init__(self, name, weight):
+    def __init__(self, name, weight=40):
         super().__init__(name, weight)
 
     def sound(self):
@@ -67,7 +71,9 @@ class Sheep(Animal):
 
     def interaction(self):
         """Human interaction with Sheep. return mass of wool in grams"""
-        return random.randint(500, 1000)
+        mass = random.randint(500, 1000)
+        print(f'С овцы состригли {mass} грамм шерсти')
+        return mass
 
 
 class Goose(Animal):
@@ -75,7 +81,7 @@ class Goose(Animal):
     Represents Goose behavior
     """
 
-    def __init__(self, name, weight):
+    def __init__(self, name, weight=6):
         super().__init__(name, weight)
 
     def sound(self):
@@ -83,7 +89,9 @@ class Goose(Animal):
 
     def interaction(self):
         """Human interaction with Goose. return count of eggs"""
-        return random.randint(1, 4)
+        eggs_cnt = random.randint(1, 4)
+        print(f'Гусь снес {eggs_cnt} яйца')
+        return eggs_cnt
 
 
 class Duck(Animal):
@@ -91,7 +99,7 @@ class Duck(Animal):
     Represents Duck behavior
     """
 
-    def __init__(self, name, weight):
+    def __init__(self, name, weight=4):
         super().__init__(name, weight)
 
     def sound(self):
@@ -99,7 +107,9 @@ class Duck(Animal):
 
     def interaction(self):
         """Human interaction with Duck. return count of eggs"""
-        return random.randint(1, 3)
+        eggs_cnt = random.randint(1, 3)
+        print(f'Гусь снес {eggs_cnt} яйца')
+        return eggs_cnt
 
 
 class Chicken(Animal):
@@ -107,7 +117,7 @@ class Chicken(Animal):
     Represents Chicken behavior
     """
 
-    def __init__(self, name, weight):
+    def __init__(self, name, weight=5):
         super().__init__(name, weight)
 
     def sound(self):
@@ -115,4 +125,29 @@ class Chicken(Animal):
 
     def interaction(self):
         """Human interaction with Chicken. return count of eggs"""
-        return random.randint(1, 5)
+        eggs_cnt = random.randint(1, 5)
+        print(f'Гусь снес {eggs_cnt} яйца')
+        return eggs_cnt
+
+
+def feedAnimal(animal, count_feed):
+    animal.eat(count_feed)
+
+
+def action(animal):
+    animal.sound()
+    animal.interaction()
+
+
+animals = [
+    Goose('Серый'),
+    Goose('Белый'),
+    Cow('Манька'),
+    Sheep('Барашек'),
+    Sheep('Кудрявый'),
+    Chicken('Ко-Ко'),
+    Chicken('Кукареку'),
+    Goat('Рога'),
+    Goat('Копыта'),
+    Duck('Кряква')
+]

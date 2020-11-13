@@ -9,7 +9,8 @@ class Animal:
         self.name = name
         self.weight = weight
 
-    def makeSound(self):
+    def sound(self):
+        """Animal makes a distinct sound"""
         raise NotImplementedError("Subclass must implement abstract method")
 
 
@@ -18,8 +19,11 @@ class Cow(Animal):
     Represents Cow behavior
     """
 
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, weight):
+        super().__init__(name, weight)
+
+    def sound(self):
+        print('Му')
 
 
 class Goat(Animal):
@@ -27,8 +31,11 @@ class Goat(Animal):
     Represents Goat behavior
     """
 
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, weight):
+        super().__init__(name, weight)
+
+    def sound(self):
+        print('Ме')
 
 
 class Sheep(Animal):
@@ -36,8 +43,11 @@ class Sheep(Animal):
     Represents Sheep behavior
     """
 
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, weight):
+        super().__init__(name, weight)
+
+    def sound(self):
+        print('Бе')
 
 
 class Goose(Animal):
@@ -45,8 +55,11 @@ class Goose(Animal):
     Represents Goose behavior
     """
 
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, weight):
+        super().__init__(name, weight)
+
+    def sound(self):
+        print('Гх')
 
 
 class Duck(Animal):
@@ -54,8 +67,11 @@ class Duck(Animal):
     Represents Duck behavior
     """
 
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, weight):
+        super().__init__(name, weight)
+
+    def sound(self):
+        print('Кря')
 
 
 class Chicken(Animal):
@@ -63,5 +79,8 @@ class Chicken(Animal):
     Represents Chicken behavior
     """
 
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, weight):
+        super().__init__(name, weight)
+
+    def sound(self):
+        print('Кудах')

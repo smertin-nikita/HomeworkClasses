@@ -151,3 +151,16 @@ animals = [
     Goat('Копыта'),
     Duck('Кряква')
 ]
+
+
+
+
+
+# get weights of all animals
+animals_weight = (animal.weight for animal in animals)
+# find sum of weights
+print(sum(animals_weight))
+
+# Sort to find the first the most weight animal
+animal_weightest = sorted(animals, key=lambda animal: animal.weight, reverse=True)
+print(animal_weightest[0].name)

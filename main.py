@@ -85,7 +85,7 @@ class Goose(Animal):
         super().__init__(name, weight)
 
     def sound(self):
-        print('Гх')
+        print('Га')
 
     def interaction(self):
         """Human interaction with Goose. return count of eggs"""
@@ -141,29 +141,33 @@ def actions(*animals):
         animal.interaction()
 
 
-animals = [
-    Goose('Серый'),
-    Goose('Белый'),
-    Cow('Манька'),
-    Sheep('Барашек'),
-    Sheep('Кудрявый'),
-    Chicken('Ко-Ко'),
-    Chicken('Кукареку'),
-    Goat('Рога'),
-    Goat('Копыта'),
-    Duck('Кряква')
-]
+animals = {
+    'серый': Goose('Серый'),
+    'белый': Goose('Белый'),
+    'манька': Cow('Манька'),
+    'барашек': Sheep('Барашек'),
+    'кудрявый': Sheep('Кудрявый'),
+    'ко-ко': Chicken('Ко-Ко'),
+    'кукареку': Chicken('Кукареку'),
+    'рога': Goat('Рога'),
+    'копыта': Goat('Копыта'),
+    'кряква': Duck('Кряква')
+}
 
 # Покормить всех
-feedAnimals(*animals)
+feedAnimals(*animals.values())
 # Взаимодейстие
-actions(*animals)
+actions(*animals.values())
+
+feedAnimals(animals['манька'], 1)
+actions(animals['серый'], animals['белый'])
+
 
 # get weights of all animals
-animals_weight = (animal.weight for animal in animals)
+animals_weight = (animal.weight for name, animal in animals)
 # find sum of weights
 print(sum(animals_weight))
 
 # Sort to find the first the most weight animal
 animal_weightest = sorted(animals, key=lambda animal: animal.weight, reverse=True)
-print(animal_weightest[0].name)
+print(animal_weightest[0].value())

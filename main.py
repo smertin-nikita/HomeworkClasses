@@ -132,13 +132,17 @@ class Chicken(Animal):
 
 def feedAnimals(*animals, count_feed=0.3):
     for animal in animals:
-        if isinstance(animal, Animal):
+        if not isinstance(animal, Animal):
+            raise TypeError
+        else:
             animal.eat(count_feed)
 
 
 def actions(*animals):
     for animal in animals:
-        if isinstance(animal, Animal):
+        if not isinstance(animal, Animal):
+            raise TypeError
+        else:
             animal.sound()
             animal.interaction()
 

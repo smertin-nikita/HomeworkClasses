@@ -132,13 +132,15 @@ class Chicken(Animal):
 
 def feedAnimals(*animals, count_feed=0.3):
     for animal in animals:
-        animal.eat(count_feed)
+        if isinstance(animal, Animal):
+            animal.eat(count_feed)
 
 
 def actions(*animals):
     for animal in animals:
-        animal.sound()
-        animal.interaction()
+        if isinstance(animal, Animal):
+            animal.sound()
+            animal.interaction()
 
 
 animals = {
